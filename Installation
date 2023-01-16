@@ -2,10 +2,10 @@ pipeline {
 agent {label 'node-1'}
 
 	stages {
-		stage ('install-apache')
+		stage ('install-nginx')
 		{
 			steps {
-				sh 'yum install httpd -y'
+				sh 'apt install nginx -y'
 			}
 		}
 		
@@ -19,17 +19,17 @@ agent {label 'node-1'}
 			}
 		}
 
-		stage ('start-apache')
+		stage ('Nginx-stop')
 		{
 			steps {
-				sh 'service httpd start'
+				sh 'systemctl nginx stop'
 			}
 		}
 
-		stage ('stop-apache')
+		stage ('Start-nginx')
 		{
 			steps {
-				sh 'service httpd stop'
+				sh 'systemctl nginx Start'
 			}
 		}
 		
