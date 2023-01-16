@@ -1,0 +1,15 @@
+pipeline {
+
+	agent{
+		node {customWorkspace '/data/mypipeline'}
+	}
+	
+		stages {
+			stage (create file){
+				steps{
+					sh 'touch NewFile'
+				}
+			}
+		}
+
+}

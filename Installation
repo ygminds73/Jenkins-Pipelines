@@ -1,0 +1,38 @@
+pipeline {
+agent {label 'node-1'}
+
+	stages {
+		stage ('install-apache')
+		{
+			steps {
+				sh 'yum install httpd -y'
+			}
+		}
+		
+		stage ('deploy-index')
+		{
+			steps {
+				sh """
+					echo "Welcome to Young Minds. 
+						Keep Learning!! Keep Growing!! " >> /var/www/html/index.html
+				"""
+			}
+		}
+
+		stage ('start-apache')
+		{
+			steps {
+				sh 'service httpd start'
+			}
+		}
+
+		stage ('stop-apache')
+		{
+			steps {
+				sh 'service httpd stop'
+			}
+		}
+		
+	}
+
+}

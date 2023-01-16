@@ -1,0 +1,46 @@
+pipeline {
+	agent any
+
+stages {
+	stage ('Parallel'){
+		parallel {
+			stage	('Stage-1')
+			{
+				steps{
+				echo "Welcome to Young Minds!"
+				sleep 5
+				}
+			}	
+			stage	('Stage-2')
+			{
+				steps{
+				echo "Keep Learning!!"
+				sleep 5
+				}
+			}
+			stage	('Stage-3')
+			{
+				steps{
+				echo "Keep Growing!!"
+				sleep 5
+				}
+			}	
+	
+
+		}
+	}
+	stage(Sequential-1)
+	{
+	  steps {
+		echo "This is sequential stage 1."
+	  }
+	}
+	
+	stage(Sequential-2)
+	{
+	  steps {
+		echo "This is sequential stage 2."
+	  }
+	}
+  }
+}
