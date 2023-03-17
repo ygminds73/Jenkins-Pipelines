@@ -1,38 +1,38 @@
+// You need add below entery in  /etc/sudoers file
+//jenkins ALL=(ALL) NOPASSWD: ALL
 pipeline {
-agent {label 'node-1'}
+agent any
 
 	stages {
 		stage ('install-nginx')
 		{
 			steps {
-				sh 'apt install nginx -y'
+				sh 'sudo apt update -y'
+				sh 'sudo apt install nginx -y'
 			}
 		}
 		
 		stage ('deploy-index')
 		{
 			steps {
-				sh """
-					echo "Welcome to Young Minds. 
-						Keep Learning!! Keep Growing!! " >> /var/www/html/index.html
-				"""
+				sh 'sudo echo "Welcome to Young Minds. Keep Learning!! Keep Growing!!" > index.html'
+				sh 'sudo mv index.html /var/www/html/index.html'
+
 			}
 		}
 
 		stage ('Nginx-stop')
 		{
 			steps {
-				sh 'systemctl nginx stop'
+				sh 'sudo systemctl stop nginx'
 			}
 		}
 
 		stage ('Start-nginx')
 		{
 			steps {
-				sh 'systemctl nginx Start'
+				sh 'sudo systemctl start nginx'
 			}
 		}
 		
 	}
-
-}
