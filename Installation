@@ -1,4 +1,4 @@
-// You need add below entery in  /etc/sudoers file
+// You need to add below entery in  /etc/sudoers file
 //jenkins ALL=(ALL) NOPASSWD: ALL
 pipeline {
 agent any
