@@ -1,3 +1,4 @@
+//New Added INC123456
 // You need to add below entery in  /etc/sudoers file
 //jenkins ALL=(ALL) NOPASSWD: ALL
 //usermod -a -G root jenkins
