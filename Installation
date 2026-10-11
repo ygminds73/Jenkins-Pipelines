@@ -38,3 +38,8 @@ agent any
 		}
 		
 	}
+
+	echo "Last line added"
+	
+
+	

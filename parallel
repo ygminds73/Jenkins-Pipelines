@@ -31,3 +31,8 @@ stages {
 	}
   }
 }
+
+
+echo "Pipeline Completed Successfully!"
+echo "Thank you for using Jenkins!"
+echo "Have a great day!"
